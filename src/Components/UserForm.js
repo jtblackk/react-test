@@ -7,9 +7,9 @@ import {useState} from 'react'
 function UserForm() {
     
     let userDataOjb = {
-        first_name: 'DEFAULT',
-        last_name: 'DEFAULT',
-        email: 'DEFAULT',
+        Email_ID: 'DEFAULT',
+        FirstName: 'DEFAULT',
+        LastName: 'DEFAULT',
     }
     const [userData, setUserData] = useState(userDataOjb)
 
@@ -18,31 +18,31 @@ function UserForm() {
         <div>
             <form>
                 <TextField 
-                    id="first_name" 
+                    id="FirstName" 
                     label="First name"
                     onChange={(event)=>{
                         let newUserData = userData;
-                        newUserData.first_name = event.target.value
+                        newUserData.FirstName = event.target.value
                         setUserData(newUserData)
                     }}
                 />
                 <br/>
                 <TextField 
-                    id="last_name" 
+                    id="LastName" 
                     label="Last name"
                     onChange={(event)=>{
                         let newUserData = userData;
-                        newUserData.last_name = event.target.value
+                        newUserData.LastName = event.target.value
                         setUserData(newUserData)
                     }}
                 />
                 <br/>
                 <TextField 
-                    id="email" 
+                    id="Email_ID" 
                     label="Email"
                     onChange={(event)=>{
                         let newUserData = userData;
-                        newUserData.email = event.target.value
+                        newUserData.Email_ID = event.target.value
                         setUserData(newUserData)
                     }}
                 />
@@ -54,8 +54,18 @@ function UserForm() {
             <Button 
                 variant="outlined"
                 onClick={()=>{
-                    console.log(`user's data: ${userData.first_name} ${userData.last_name} ${userData.email}`)
-                    console.log("make an api call here");
+                    console.log(`user's data: ${userData.FirstName} ${userData.LastName} ${userData.Email_ID}`)
+                    // fetch()
+                    let URL = 'https://3wtpaomi89.execute-api.us-east-1.amazonaws.com/dev/postdriverdetails'
+                   
+                    let requestOptions = {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({Email_ID: userData.Email_ID, FirstName: userData.FirstName, LastName: userData.LastName})
+                    }
+
+                    fetch(URL, requestOptions)
+                    console.log('!!!')
                 }}>
 
                 submit
