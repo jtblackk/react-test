@@ -55,8 +55,7 @@ function UserForm() {
                 variant="outlined"
                 onClick={()=>{
                     console.log(`user's data: ${userData.FirstName} ${userData.LastName} ${userData.Email_ID}`)
-                    // fetch()
-                    let URL = 'https://3wtpaomi89.execute-api.us-east-1.amazonaws.com/dev/postdriverdetails'
+                    // let URL = 'https://3wtpaomi89.execute-api.us-east-1.amazonaws.com/dev/postdriverdetails'
                    
                     let requestOptions = {
                         method: 'POST',
