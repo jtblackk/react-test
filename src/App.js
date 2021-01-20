@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
-import UserForm from './Components/UserForm'
+import CreateAccountForm from './Components/CreateAccountFormTest'
 
 function App() {
   return (
     <div className="App">
-      <UserForm/>
+      <CreateAccountForm/>
     </div>
   );
 }

@@ -1,14 +1,14 @@
 import { Button, TextField, Typography } from '@material-ui/core';
 import react, {useState} from 'react'
 
-function UserForm() {
+function CreateAccountForm() {
     
-    let userDataOjb = {
+    let userDetailObj = {
         Email_ID: 'DEFAULT',
         FirstName: 'DEFAULT',
         LastName: 'DEFAULT',
     }
-    const [userData, setUserData] = useState(userDataOjb)
+    const [userDetails, setUserDetails] = useState(userDetailObj)
 
     return (
         <div>
@@ -19,9 +19,9 @@ function UserForm() {
                     onChange={
                         (event)=>{
                             // update first name in state
-                            let newUserData = userData;
-                            newUserData.FirstName = event.target.value
-                            setUserData(newUserData)
+                            let newUserDetails = userDetails;
+                            newUserDetails.FirstName = event.target.value
+                            setUserDetails(newUserDetails)
                         }
                     }
                 />
@@ -32,9 +32,9 @@ function UserForm() {
                     onChange={
                         (event)=>{
                             // update last name in state
-                            let newUserData = userData;
-                            newUserData.LastName = event.target.value
-                            setUserData(newUserData)
+                            let newUserDetails = userDetails;
+                            newUserDetails.LastName = event.target.value
+                            setUserDetails(newUserDetails)
                         }
                     }
                 />
@@ -45,9 +45,9 @@ function UserForm() {
                     onChange={
                         (event)=>{
                             // update email in state
-                            let newUserData = userData;
-                            newUserData.Email_ID = event.target.value
-                            setUserData(newUserData)
+                            let newUserDetails = userDetails;
+                            newUserDetails.Email_ID = event.target.value
+                            setUserDetails(newUserDetails)
                         }
                     }
                 />
@@ -65,9 +65,9 @@ function UserForm() {
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify({
-                            Email_ID: userData.Email_ID, 
-                            FirstName: userData.FirstName, 
-                            LastName: userData.LastName
+                            Email_ID: userDetails.Email_ID, 
+                            FirstName: userDetails.FirstName, 
+                            LastName: userDetails.LastName
                         })
                     }
 
@@ -83,4 +83,4 @@ function UserForm() {
 }
 
 
-export default UserForm;
+export default CreateAccountForm;
